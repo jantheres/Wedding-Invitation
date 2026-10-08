@@ -3,9 +3,58 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
-    <title>InviteStory — Sample Template</title>
+    <!-- Primary Meta Tags -->
+    <title>Rupali & Rohan — Wedding Invitation</title>
+    <meta name="title" content="Rupali & Rohan — Wedding Invitation" />
+    <meta name="description" content="You are cordially invited to celebrate the auspicious wedding ceremony of Rupali & Rohan on Friday, 11 December 2026 in Lucknow." />
+
+    <!-- Open Graph / Facebook / WhatsApp / iMessage -->
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content="Rupali & Rohan — Wedding Invitation" />
+    <meta property="og:description" content="You are cordially invited to celebrate the auspicious wedding ceremony of Rupali & Rohan on Friday, 11 December 2026 in Lucknow." />
+    <meta property="og:image" content="./editable/assets/couple.png" />
+
+    <!-- Twitter -->
+    <meta property="twitter:card" content="summary_large_image" />
+    <meta property="twitter:title" content="Rupali & Rohan — Wedding Invitation" />
+    <meta property="twitter:description" content="You are cordially invited to celebrate the auspicious wedding ceremony of Rupali & Rohan on Friday, 11 December 2026 in Lucknow." />
+    <meta property="twitter:image" content="./editable/assets/couple.png" />
+
     <link rel="icon" type="image/x-icon" href="./favicon.ico" />
     <script src="./editable/wedding-data.js"></script>
+    <script>
+      if (window.WEDDING_DATA) {
+        var data = window.WEDDING_DATA;
+        var og = data.ogMeta || {};
+        var title = og.title || (data.couple ? data.couple.bride + " & " + data.couple.groom + " — Wedding Invitation" : document.title);
+        var desc = og.description || (data.mainEvent ? "You are cordially invited to celebrate the auspicious wedding ceremony of " + data.couple.bride + " & " + data.couple.groom + " on " + data.mainEvent.dateLabel + "." : "");
+        var img = og.image || "./editable/assets/couple.png";
+
+        if (title) {
+          document.title = title;
+          var tMeta = document.querySelector('meta[name="title"]');
+          if (tMeta) tMeta.setAttribute('content', title);
+          var ogTMeta = document.querySelector('meta[property="og:title"]');
+          if (ogTMeta) ogTMeta.setAttribute('content', title);
+          var twTMeta = document.querySelector('meta[property="twitter:title"]');
+          if (twTMeta) twTMeta.setAttribute('content', title);
+        }
+        if (desc) {
+          var dMeta = document.querySelector('meta[name="description"]');
+          if (dMeta) dMeta.setAttribute('content', desc);
+          var ogDMeta = document.querySelector('meta[property="og:description"]');
+          if (ogDMeta) ogDMeta.setAttribute('content', desc);
+          var twDMeta = document.querySelector('meta[property="twitter:description"]');
+          if (twDMeta) twDMeta.setAttribute('content', desc);
+        }
+        if (img) {
+          var ogIMeta = document.querySelector('meta[property="og:image"]');
+          if (ogIMeta) ogIMeta.setAttribute('content', img);
+          var twIMeta = document.querySelector('meta[property="twitter:image"]');
+          if (twIMeta) twIMeta.setAttribute('content', img);
+        }
+      }
+    </script>
     <script type="module" crossorigin src="./assets/index-BrMSd8jH.js"></script>
     <link rel="stylesheet" crossorigin href="./assets/styles-D75Ml1pI.css">
   </head>

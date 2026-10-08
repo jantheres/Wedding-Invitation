@@ -9,6 +9,12 @@ This template is a Maratha haveli luxury wedding invitation featuring an interac
 All routine customer edits are configured in:
 → [editable/wedding-data.js](file:///Users/amnas/Desktop/h2track/rajwada-royale/editable/wedding-data.js)
 
+### OpenGraph & Social Sharing (WhatsApp, iMessage, Facebook, Twitter)
+Edit `ogMeta` in `editable/wedding-data.js`:
+- `title`: Social share card title (e.g. `"Rupali & Rohan — Wedding Invitation"`)
+- `description`: Social share preview text
+- `image`: Path to social preview image (e.g. `"./editable/assets/couple.png"`)
+
 ### Couple & Families
 Edit `couple` and `families` in `editable/wedding-data.js`:
 - `groom` & `bride`: Names (e.g. `"Rizwan"`, `"Ayesha"`)

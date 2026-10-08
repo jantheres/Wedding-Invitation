@@ -4,6 +4,12 @@
  */
 
 window.WEDDING_DATA = {
+  ogMeta: {
+    title: "Rupali & Rohan — Wedding Invitation",
+    description: "You are cordially invited to celebrate the auspicious wedding ceremony of Rupali & Rohan on Friday, 11 December 2026 in Lucknow.",
+    image: "./editable/assets/couple.png",
+  },
+
   couple: {
     groom: "Rohan",
     bride: "Rupali",
