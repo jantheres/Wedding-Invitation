@@ -1,0 +1,68 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
+    <title>InviteStory — Sample Template</title>
+    <link rel="icon" type="image/x-icon" href="./favicon.ico" />
+    <script src="./editable/wedding-data.js"></script>
+    <script type="module" crossorigin src="./assets/index-BrMSd8jH.js"></script>
+    <link rel="stylesheet" crossorigin href="./assets/styles-D75Ml1pI.css">
+  </head>
+  <body>
+    <div id="root"></div>
+    <script>
+      // Enhance gallery with Mouse Drag-to-Slide and Mouse Wheel horizontal scroll
+      document.addEventListener('DOMContentLoaded', () => {
+        const setupGalleryHelpers = () => {
+          const gallery = document.querySelector('.scroll-strip');
+          if (!gallery || gallery.dataset.dragEnabled) return;
+          gallery.dataset.dragEnabled = "true";
+
+          let isDown = false;
+          let startX;
+          let scrollLeft;
+
+          gallery.style.cursor = 'grab';
+
+          gallery.addEventListener('mousedown', (e) => {
+            isDown = true;
+            gallery.style.cursor = 'grabbing';
+            startX = e.pageX - gallery.offsetLeft;
+            scrollLeft = gallery.scrollLeft;
+          });
+
+          gallery.addEventListener('mouseleave', () => {
+            isDown = false;
+            gallery.style.cursor = 'grab';
+          });
+
+          gallery.addEventListener('mouseup', () => {
+            isDown = false;
+            gallery.style.cursor = 'grab';
+          });
+
+          gallery.addEventListener('mousemove', (e) => {
+            if (!isDown) return;
+            e.preventDefault();
+            const x = e.pageX - gallery.offsetLeft;
+            const walk = (x - startX) * 2;
+            gallery.scrollLeft = scrollLeft - walk;
+          });
+
+          gallery.addEventListener('wheel', (e) => {
+            if (e.deltaY !== 0) {
+              e.preventDefault();
+              gallery.scrollLeft += e.deltaY * 1.5;
+            }
+          }, { passive: false });
+        };
+
+        const observer = new MutationObserver(setupGalleryHelpers);
+        observer.observe(document.body, { childList: true, subtree: true });
+        setupGalleryHelpers();
+      });
+    </script>
+  </body>
+</html>
+
